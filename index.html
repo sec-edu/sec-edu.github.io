@@ -10,7 +10,7 @@
 
   <!-- 📸 Full-width background image and title in header -->
   <header class="page-header">
-    <img class="header-image" src="poster.png" alt="Education Background" />
+    <img class="header-image" src="1.jpg" alt="Education Background" />
     <div class="header-title">
       <h1>Security Education</h1>
       <p>Engaging lessons and video tutorials for students</p>
@@ -20,7 +20,7 @@
   <!-- 🔗 Navigation -->
   <nav>
     <a href="#home">Home</a>
-    <a href="#new-posts">New Posts</a>
+    <a href="#new-post">New Post</a>
     <a href="#videos">Previous Lessons</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -28,18 +28,19 @@
   <!-- 📄 Main Content -->
   <main>
     <!-- ✅ New Posts Section -->
-    <section id="new-posts">
-      <h2>🆕 New Posts</h2>
+    <section id="new-post">
+      <h2>🆕 New Post</h2>
       <div class="videos">
 
         <!-- Example New Video -->
-        <div class="video">
-          <a href="https://youtu.be/F4C9XTF-Y-M" target="_blank">
-            <img src="https://img.youtube.com/vi/F4C9XTF-Y-M/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Ohm's Law</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
+        <div class="video1">
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/UEoXaZoPkcc" 
+                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+          <p>Introduction Video</p>
         </div>
+
+
 
       </div>
     </section>
@@ -49,66 +50,30 @@
       <h2>📚 Previous Lessons</h2>
       <div class="scroll-videos">
 
-        <!-- Old Video 1 -->
-        <div class="video">
-          <a href="https://youtu.be/BiMQjkUgZNk"  target="_blank">
-            <img src="https://img.youtube.com/vi/BiMQjkUgZNk/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Test</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
-        </div>
-        <!-- Old Video 3 -->
-        <div class="video">
-          <a href="https://youtu.be/F4C9XTF-Y-M" target="_blank">
-            <img src="https://img.youtube.com/vi/F4C9XTF-Y-M/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Lesson 2: Test</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
-        </div>
+        <!-- Video with Embedded Popup Modal -->
+      <div class="video">
+        <!-- Trigger for Modal -->
+        <a href="#popup1" class="open-popup">
+          <img src="https://img.youtube.com/vi/F4C9XTF-Y-M/hqdefault.jpg" alt="Video Thumbnail" />
+          <p>🎬 Test</p>
+        </a>
 
-        <!-- Optional Duplicates -->
-        <div class="video">
-          <a href="https://youtu.be/F4C9XTF-Y-M" target="_blank">
-            <img src="https://img.youtube.com/vi/F4C9XTF-Y-M/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Lesson 2: Test</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
+        <!-- Popup Modal -->
+        <div id="popup1" class="popup">
+          <div class="popup-content">
+            <iframe
+              src="https://www.youtube.com/embed/UEoXaZoPkcc"
+              title="YouTube video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <br>
+            <a href="#" class="close">Close</a>
+          </div>
         </div>
-        <div class="video">
-          <a href="https://youtu.be/F4C9XTF-Y-M" target="_blank">
-            <img src="https://img.youtube.com/vi/F4C9XTF-Y-M/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Lesson 2: Test</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
-        </div>
-        <div class="video">
-          <a href="https://youtu.be/F4C9XTF-Y-M" target="_blank">
-            <img src="https://img.youtube.com/vi/F4C9XTF-Y-M/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Lesson 2: Test</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
-        </div>
-<div class="video">
-          <a href="https://youtu.be/BiMQjkUgZNk" target="_blank">
-            <img src="https://img.youtube.com/vi/BiMQjkUgZNk/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Lesson 2: Test</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
-        </div>
-<div class="video">
-          <a href="https://youtu.be/BiMQjkUgZNk" target="_blank">
-            <img src="https://img.youtube.com/vi/BiMQjkUgZNk/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Lesson 2: Test</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
-        </div>
-<div class="video">
-          <a href="https://youtu.be/BiMQjkUgZNk" target="_blank">
-            <img src="https://img.youtube.com/vi/BiMQjkUgZNk/hqdefault.jpg" alt="Video Thumbnail" />
-            <p>🎬 Lesson 2: Test</p>
-            <span class="watch-button">▶️ Watch on YouTube</span>
-          </a>
-        </div>
+      </div>
+
 
       </div>
     </section>
@@ -116,10 +81,10 @@
 
   <!-- 📞 Footer Contact Info -->
   <footer id="contact">
-    <p>Contact us: <a href="mailto:your@email.com">your@email.com</a></p>
+    <p>Contact us: <a href="mailto:your@email.com">@gmail.com</a></p>
     <p>Project <a href="https://www.binghamton.edu/computer-science/research/secedu.html" target="_blank">Main Webpage</a></p>
     
-    <p>Visit our <a href="https://www.youtube.com/@SecEdu-k5f" target="_blank">YouTube Channel</a></p>
+    <p>Visit our <a href="http://www.youtube.com/@HardwareSecurityForAll" target="_blank">YouTube Channel</a></p>
   </footer>
 
   <!-- ✨ Scroll fade script -->
