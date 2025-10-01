@@ -1,0 +1,120 @@
+/* Reset and base styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Container */
+.page-header {
+  background-color: #2c3e50;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.header-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.5s ease;
+  /* No position:absolute */
+}
+
+.header-title {
+  text-align: center;
+  background-color: #2c3e50;
+  color: white;
+  padding: 2rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  background-color: #34495e;
+  text-align: center;
+  padding: 1rem;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* New Posts (grid layout) */
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Previous Lessons (horizontal scroll layout) */
+.scroll-videos {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 20px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Individual video card */
+.video {
+  flex: 0 0 auto;
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.video a {
+  text-decoration: none;
+  color: black;
+}
+
+.video img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Watch button style */
+.watch-button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #cc0000;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer a {
+  color: #ffa;
+}
