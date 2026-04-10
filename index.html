@@ -117,14 +117,129 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(37,99,235,0.3);
     }
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: .5rem;
+    }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 2rem;
+    }
+
+    .stat {
+      background: white;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .stat h3 { color: #2563eb; font-size: 2rem; }
+
+    /* CURRICULUM */
+    .module {
+      background: white;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* VIDEO */
+    .video-responsive {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    .video-responsive iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* =========================
+       THUMBNAIL SLIDER (NEW)
+       ========================= */
+
+    .thumb-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .thumb-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .thumb-slider::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 4px;
+    }
+
+    .thumb-slider img {
+      width: 180px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      transition: transform 0.3s;
+    }
+
+    .thumb-slider img:hover {
+      transform: scale(1.05);
+    }
+
+    /* LIGHTBOX (kept, no JS) */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      text-decoration: none;
+    }
+
 
     /* --- General Sections --- */
     section {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
+    padding: 5rem 2rem;
+    width: 100%;
+    margin: 0;
+  }
+  
     h2 {
       font-size: 2rem;
       margin-bottom: 2rem;
@@ -365,6 +480,64 @@
   box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
 
+
+
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 36, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 85%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+.close, .prev, .next {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.close {
+  top: 20px;
+  right: 40px;
+}
+
+.prev {
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+}
+
+.next {
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+}
+
+.close:hover, .prev:hover, .next:hover {
+  color: #2563eb;
+}
+
+
+
+
     /* --- Popup Modals --- */
     .popup {
       visibility: hidden;
@@ -416,7 +589,41 @@
     .close:hover {
       background: #c0392b;
     }
+.module {
+  border-left: 4px solid #2563eb;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  cursor: pointer;
+}
 
+.module summary {
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.module summary::-webkit-details-marker {
+  display: none;
+}
+
+.module-desc {
+  margin-top: 10px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.module summary::after {
+  content: "▼";
+  float: right;
+  transition: transform 0.3s;
+}
+
+.module[open] summary::after {
+  transform: rotate(180deg);
+}
     /* --- Footer --- */
     footer {
       background-color: #1a252f;
@@ -459,14 +666,14 @@
   <nav>
     <a href="#hero">Home</a>
     <a href="#stats">Impact</a>
-    <a href="#faculty">Faculty</a>
-    <a href="#curriculum">Curriculum</a>
-    <a href="#lessons">Lessons</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="#curriculum">Latest Lessons</a>
+    <a href="archive.html">Archive</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <section class="hero" id="hero">
-    <img class="header-image" src="1.jpg" alt="Education Background" />
+    <img class="header-image" src="photos/4.jpg" alt="Education Background" />
     <div class="hero-content">
       <h1>Cybersecurity Education Lab</h1>
       <p>Advancing secure systems through research-driven education</p>
@@ -475,135 +682,139 @@
   </section>
 
   <section id="stats" class="reveal">
+    <h2>About Security Education</h2>
+    <div class="stats">
+  The Security Education program introduces young students to microelectronics through hands‑on projects that demonstrate how electronic components and circuits function. After building a practical foundation, it transitions to security: students explore why device security matters and, in guided, age‑appropriate stages, investigate real‑world vulnerabilities. Using simple, supervised demonstrations of side‑channel attacks (power, timing, electromagnetic, etc.), students observe how information can leak and learn practical defenses. The program emphasizes safe, ethical practice and scalable lessons from basic concepts to advanced techniques.
+
+Step-by-step video tutorials are available through our website and YouTube channel, guiding students through each project in an easy-to-follow format.
+      
+    </div>
+  </section>
+
+  <section id="stats" class="reveal">
     <h2>Program Impact</h2>
     <div class="stats">
       <div class="stat"><h3>200+</h3><p>High/Mid/Elementary Students have been introdueced to Microelectronics</p></div>
-      <div class="stat"><h3>2+</h3><p>Community Events/Workshops Attended</p></div>
+      <div class="stat"><h3>2</h3><p>Community Events/Workshops Attended</p></div>
       <div class="stat"><h3>5+</h3><p>Grad/Undergrad students involved</p></div>
       <div class="stat"><h3>100%</h3><p>Hands-on Learning</p></div>
     </div>
   </section>
 
+</div>
   <section id="curriculum" class="reveal">
-    <h2>Curriculum & Latest Lesson</h2>
-    
-    <div class="syllabus">
-      <div class="module"><strong>Module 1:</strong> Foundations of Electronics & Ohm’s Law</div>
-      <div class="module"><strong>Module 2:</strong> Embedded Systems with Raspberry Pi</div>
-      <div class="module"><strong>Module 3:</strong> Hardware Security & Side-Channel Attacks</div>
-      <div class="module"><strong>Module 4:</strong> Applied Systems Design (Pong Project)</div>
+    <h2>Latest Lesson</h2>
+
+  <div class="syllabus">
+
+  <details class="module">
+    <summary><strong>Module 1:</strong> Foundations of Electronics & Ohm’s Law</summary>
+    <div class="module-desc">
+      This lesson introduces the fundamental concepts of electronics, including voltage, current, and resistance, and explains how they interact in a circuit. It also covers Ohm’s Law, showing how to calculate and predict electrical behavior using the relationship between these core variables.
     </div>
+  </details>
+
+  <details class="module">
+    <summary><strong>Module 2:</strong> Embedded Systems with Raspberry Pi</summary>
+    <div class="module-desc">
+      Learn how embedded systems work using Raspberry Pi, including basic programming, hardware interaction, and real-world applications.
+    </div>
+  </details>
+
+  <details class="module">
+    <summary><strong>Module 3:</strong> Hardware Security & Side-Channel Attacks</summary>
+    <div class="module-desc">
+      Explore how hardware can leak sensitive information and how side-channel attacks exploit power, timing, and electromagnetic signals.
+    </div>
+  </details>
+
+  <details class="module">
+    <summary><strong>Module 4:</strong> Introduction to Brute Force</summary>
+    <div class="module-desc">
+     A brute force attack is a method used in cybersecurity where an attacker systematically tries all possible combinations of passwords or keys until the correct one is found. It is simple but often time-consuming, and its effectiveness depends heavily on password complexity and system security protections like rate limiting and lockout policies.
+    </div>
+  </details>
+    
 
     <div class="featured-video-wrapper">
       <div class="video-responsive">
         <iframe 
-          src="https://www.youtube.com/embed/S1C-6-dfpfE" 
-          title="Introduction to Raspberry Pi"
+          src="https://www.youtube.com/embed/WcsAMPvN2Bg" 
+          title="Introduction to Brute Force "
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
         </iframe>
       </div>
-      <p>Latest Focus: Introduction to Raspberry Pi</p>
+      <p>Latest Focus: Introduction to Brute Force</p>
     </div>
   </section>
 
-  <section id="faculty" class="reveal">
-    <h2>Faculty & Researchers</h2>
-    <div class="faculty-grid">
-      <div class="faculty">
-        <!-- <img src="https://via.placeholder.com/120" alt="Dr. Jane Smith"> -->
-        <h3>Dr. Ponomarev </h3>
-        <p>Hardware Security</p>
-      </div>
-      <div class="faculty">
-        <!-- <img src="https://via.placeholder.com/120" alt="Dr. Michael Chen"> -->
-        <h3>Dr. Yang</h3>
-        <p>Microelectronics</p>
-      </div>
-  
-    </div>
-  </section>
 
-  <section id="lessons" class="reveal">
-    <h2>Video Archive</h2>
-    <div class="scroll-videos">
-
-      <div class="video-card">
-        <a href="#popup1">
-          <img src="https://img.youtube.com/vi/UEoXaZoPkcc/hqdefault.jpg" alt="Ohm's Law Thumbnail" />
-          <p>Ohm's Law</p>
-        </a>
-      </div>
-      <div id="popup1" class="popup">
-        <div class="popup-content">
-          <div class="video-responsive">
-            <iframe src="https://www.youtube.com/embed/UEoXaZoPkcc" title="Ohm's Law" allowfullscreen></iframe>
-          </div>
-          <a href="#lessons" class="close">Close Video</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <a href="#popup2">
-          <img src="https://img.youtube.com/vi/_q1Ze8Wa-r0/hqdefault.jpg" alt="Pong Game Thumbnail" />
-          <p>Pong Game</p>
-        </a>
-      </div>
-      <div id="popup2" class="popup">
-        <div class="popup-content">
-          <div class="video-responsive">
-            <iframe src="https://www.youtube.com/embed/_q1Ze8Wa-r0" title="Pong Game" allowfullscreen></iframe>
-          </div>
-          <a href="#lessons" class="close">Close Video</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <a href="#popup3">
-          <img src="https://img.youtube.com/vi/7bOKi61ucHE/hqdefault.jpg" alt="Micro Electronics Side Channels Thumbnail" />
-          <p>Micro Electronics Side Channels</p>
-        </a>
-      </div>
-      <div id="popup3" class="popup">
-        <div class="popup-content">
-          <div class="video-responsive">
-            <iframe src="https://www.youtube.com/embed/7bOKi61ucHE" title="Side Channels" allowfullscreen></iframe>
-          </div>
-          <a href="#lessons" class="close">Close Video</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <a href="#popup4">
-          <img src="https://img.youtube.com/vi/S1C-6-dfpfE/hqdefault.jpg" alt="Introduction Thumbnail" />
-          <p>Introduction</p>
-        </a>
-      </div>
-      <div id="popup4" class="popup">
-        <div class="popup-content">
-          <div class="video-responsive">
-            <iframe src="https://www.youtube.com/embed/S1C-6-dfpfE" title="Introduction" allowfullscreen></iframe>
-          </div>
-          <a href="#lessons" class="close">Close Video</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="gallery" class="reveal">
+<section id="gallery">
   <h2>Photo Library</h2>
 
-  <div class="photo-grid">
-    <img src="photos/1.jpg" alt="Workshop 1" onclick="openLightbox(this.src)">
-    <img src="photos/2.jpg" alt="Students Working" onclick="openLightbox(this.src)">
-    <img src="photos/3.jpg" alt="Hardware Demo" onclick="openLightbox(this.src)">
-    <img src="photos/4.jpg" alt="Lab Session" onclick="openLightbox(this.src)">
-    <img src="photos/5.jpg" alt="Teaching Session" onclick="openLightbox(this.src)">
-    <img src="photos/6.jpg" alt="Electronics Setup" onclick="openLightbox(this.src)">
-    <img src="photos/7.jpg" alt="Electronics Setup" onclick="openLightbox(this.src)">
+  <div class="thumb-slider">
+    <a href="#img1"><img src="photos/1.jpg"></a>
+    <a href="#img2"><img src="photos/2.jpg"></a>
+    <a href="#img3"><img src="photos/3.jpg"></a>
+    <a href="#img4"><img src="photos/4.jpg"></a>
+    <a href="#img5"><img src="photos/5.jpg"></a>
+    <a href="#img6"><img src="photos/6.jpg"></a>
+    <a href="#img7"><img src="photos/7.jpg"></a>
+    <a href="#img7"><img src="photos/8.jpg"></a>
+    <a href="#img7"><img src="photos/9.jpg"></a>
+    <a href="#img7"><img src="photos/10.jpg"></a>
   </div>
 </section>
+
+<!-- LIGHTBOXES -->
+<div id="img1" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/1.jpg">
+</div>
+
+<div id="img2" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/2.jpg">
+</div>
+
+<div id="img3" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/3.jpg">
+</div>
+
+<div id="img4" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/4.jpg">
+</div>
+
+<div id="img5" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/5.jpg">
+</div>
+
+<div id="img6" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/6.jpg">
+</div>
+
+<div id="img7" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/7.jpg">
+</div>
+
+<div id="img8" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/8.jpg">
+</div>
+<div id="img9" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/9.jpg">
+</div>
+<div id="img10" class="lightbox">
+  <a href="#gallery" class="close">×</a>
+  <img src="photos/10.jpg">
+</div>
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
