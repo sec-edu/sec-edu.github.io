@@ -575,20 +575,8 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
-    .close {
-      margin-top: 20px;
-      padding: 10px 24px;
-      background: #e74c3c;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
 
-    .close:hover {
-      background: #c0392b;
-    }
+    
 .module {
   border-left: 4px solid #2563eb;
   background: white;
@@ -659,6 +647,58 @@
       opacity: 1;
       transform: translateY(0);
     }
+       .thumb-slider {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 10px;
+    }
+
+    .thumb-slider img {
+      width: 180px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 85%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    .close, .prev, .next {
+      position: absolute;
+      color: white;
+      font-size: 40px;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    .close { top: 20px; right: 30px; }
+    .prev { left: 30px; top: 50%; transform: translateY(-50%); }
+    .next { right: 30px; top: 50%; transform: translateY(-50%); }
+
+    .prev:hover, .next:hover, .close:hover {
+      color: #2563eb;
+    }
+
   </style>
 </head>
 <body>
@@ -695,8 +735,8 @@ Step-by-step video tutorials are available through our website and YouTube chann
     <h2>Program Impact</h2>
     <div class="stats">
       <div class="stat"><h3>200+</h3><p>High/Mid/Elementary Students have been introdueced to Microelectronics</p></div>
-      <div class="stat"><h3>2</h3><p>Community Events/Workshops Attended</p></div>
-      <div class="stat"><h3>5+</h3><p>Grad/Undergrad students involved</p></div>
+      <!-- <div class="stat"><h3>2</h3><p>Community Events/Workshops Attended</p></div> -->
+      <div class="stat"><h3>10+</h3><p>Graduate/Undergraduate students involved</p></div>
       <div class="stat"><h3>100%</h3><p>Hands-on Learning</p></div>
     </div>
   </section>
@@ -704,7 +744,7 @@ Step-by-step video tutorials are available through our website and YouTube chann
 </div>
   <section id="curriculum" class="reveal">
     <h2>Latest Lesson</h2>
-
+  
   <div class="syllabus">
 
   <details class="module">
@@ -734,6 +774,10 @@ Step-by-step video tutorials are available through our website and YouTube chann
      A brute force attack is a method used in cybersecurity where an attacker systematically tries all possible combinations of passwords or keys until the correct one is found. It is simple but often time-consuming, and its effectiveness depends heavily on password complexity and system security protections like rate limiting and lockout policies.
     </div>
   </details>
+      <p>
+  You can find all lessons at: 
+  <a href="archive.html">our video archive</a>
+</p>
     
 
     <div class="featured-video-wrapper">
@@ -761,59 +805,82 @@ Step-by-step video tutorials are available through our website and YouTube chann
     <a href="#img5"><img src="photos/5.jpg"></a>
     <a href="#img6"><img src="photos/6.jpg"></a>
     <a href="#img7"><img src="photos/7.jpg"></a>
-    <a href="#img7"><img src="photos/8.jpg"></a>
-    <a href="#img7"><img src="photos/9.jpg"></a>
-    <a href="#img7"><img src="photos/10.jpg"></a>
+    <a href="#img8"><img src="photos/8.jpg"></a>
+    <a href="#img9"><img src="photos/9.jpg"></a>
+    <a href="#img10"><img src="photos/10.jpg"></a>
   </div>
 </section>
 
-<!-- LIGHTBOXES -->
+<!-- LIGHTBOXES (NO JAVASCRIPT VERSION) -->
+
 <div id="img1" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img10" class="prev">❮</a>
   <img src="photos/1.jpg">
+  <a href="#img2" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
 
 <div id="img2" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img1" class="prev">❮</a>
   <img src="photos/2.jpg">
+  <a href="#img3" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
 
 <div id="img3" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img2" class="prev">❮</a>
   <img src="photos/3.jpg">
+  <a href="#img4" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
 
 <div id="img4" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img3" class="prev">❮</a>
   <img src="photos/4.jpg">
+  <a href="#img5" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
 
 <div id="img5" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img4" class="prev">❮</a>
   <img src="photos/5.jpg">
+  <a href="#img6" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
 
 <div id="img6" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img5" class="prev">❮</a>
   <img src="photos/6.jpg">
+  <a href="#img7" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
 
 <div id="img7" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img6" class="prev">❮</a>
   <img src="photos/7.jpg">
+  <a href="#img8" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
 
 <div id="img8" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img7" class="prev">❮</a>
   <img src="photos/8.jpg">
+  <a href="#img9" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
+
 <div id="img9" class="lightbox">
-  <a href="#gallery" class="close">×</a>
+  <a href="#img8" class="prev">❮</a>
   <img src="photos/9.jpg">
-</div>
-<div id="img10" class="lightbox">
+  <a href="#img10" class="next">❯</a>
   <a href="#gallery" class="close">×</a>
+</div>
+
+<div id="img10" class="lightbox">
+  <a href="#img9" class="prev">❮</a>
   <img src="photos/10.jpg">
+  <a href="#img1" class="next">❯</a>
+  <a href="#gallery" class="close">×</a>
 </div>
 
 <!-- Lightbox -->
@@ -824,7 +891,7 @@ Step-by-step video tutorials are available through our website and YouTube chann
 
   <footer id="contact">
     <p>Cybersecurity Education Lab — Binghamton University</p>
-    <p>Contact us: <a href="mailto:your@email.com">your@email.com</a></p>
+    <p>Contact us: <a href="mailto:your@email.com">Our Email</a></p>
     <p>Project <a href="https://www.binghamton.edu/computer-science/research/secedu.html" target="_blank">Main Webpage</a></p>
     <p>Visit our <a href="http://www.youtube.com/@HardwareSecurityForAll" target="_blank">YouTube Channel</a></p>
   </footer>
